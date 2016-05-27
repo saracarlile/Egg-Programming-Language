@@ -1,6 +1,5 @@
-// skipSpace function repeatedly cut the whitespace off the start of the program string.
-//parseExpression uses three regular expressions to spot the three simple 
-//elements that Egg supports: strings, numbers, and words
+//first code block
+
 function parseExpression(program) {
   program = skipSpace(program);
   var match, expr;
@@ -22,10 +21,7 @@ function skipSpace(string) {
   return string.slice(first);
 }
 
-//If the next character in the program is not an opening parenthesis, 
-//this is not an application, and parseApply simply returns the expression it was given.
-//Otherwise, it skips the opening parenthesis and creates the syntax tree object for this application expression. 
-//It then recursively calls parseExpression to parse each argument until a closing parenthesis is found.
+//second code block
 
 function parseApply(expr, program) {
   program = skipSpace(program);
@@ -46,9 +42,7 @@ function parseApply(expr, program) {
   return parseApply(expr, program.slice(1));
 }
 
-//This is all we need to parse Egg. We wrap it in a convenient parse function that 
-//verifies that it has reached the end of the input string after parsing the expression 
-//(an Egg program is a single expression), and that gives us the program’s data structure.
+//third code block
 
 function parse(program) {
   var result = parseExpression(program);
@@ -56,3 +50,4 @@ function parse(program) {
     throw new SyntaxError("Unexpected text after program");
   return result.expr;
 }
+
