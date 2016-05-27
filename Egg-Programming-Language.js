@@ -173,3 +173,7 @@ specialForms["fun"] = function(args, env) {
     return evaluate(body, localEnv);
   };
 };
+
+run("do(define(plusOne, fun(a, +(a, 1))),",
+    "   print(plusOne(10)))");
+// → 11
