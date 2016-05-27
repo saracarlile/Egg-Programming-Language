@@ -1,8 +1,10 @@
 This project is from Eloquent JS, where there is a walk-through of building
-your own programming language called "Egg".  There are some exercises afterwards.
+your own programming language called "Egg".  There are some exercises afterwards. http://eloquentjavascript.net/11_language.html
 
 
 Overview of code:
+
+Create syntax tree for a program:
 
 First code block:
 
@@ -22,3 +24,17 @@ Third code block:
 This is all we need to parse Egg. We wrap it in a convenient parse function that 
 verifies that it has reached the end of the input string after parsing the expression 
 (an Egg program is a single expression), and that gives us the program’s data structure.
+
+
+ Run syntax tree:
+ 
+ Fourth code block:
+ 
+Give evaluate function a syntax tree and an environment object that associates names with values, 
+and it will evaluate the expression that the tree represents and return the value that this produces.
+In evaluate, a literal value expressio, ie. "199", simply produces its value.   
+For a variable, we must check whether it is actually defined in the environment and, if it is, fetch the variable’s value.
+Applications are more involved. If they are a special form, like if, we do not evaluate anything and simply pass the argument expressions, 
+along with the environment, to the function that handles this form. 
+If it is a normal call, we evaluate the operator, verify that it is a function, and call it with the result of evaluating the arguments.
+Evaluate is recursive until all arguments and expressions in a "tree" have been evaluated.
