@@ -4,10 +4,10 @@ your own programming language called "Egg".  There are some exercises afterwards
 
 Overview of code:
 
-Create syntax tree for a program:
 
 First code block:
 
+Create syntax tree for a program.
 skipSpace function repeatedly cut the whitespace off the start of the program string.
 parseExpression uses three regular expressions to spot the three simple 
 elements that Egg supports: strings, numbers, and words.
